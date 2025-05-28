@@ -13,3 +13,10 @@ borderColor = "white"
 baseRadius = "full"
 showWidgetBorder = true
 font = "calibri"
+
+[server]
+headless = true
+
+[general]
+# Set your custom main Python file here
+target = "ateezlore.py"
