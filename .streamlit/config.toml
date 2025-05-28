@@ -13,7 +13,3 @@ borderColor = "white"
 baseRadius = "full"
 showWidgetBorder = true
 font = "calibri"
-
-[theme.sidebar]
-base = "dark"
-primaryColor = "red"
