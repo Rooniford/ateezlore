@@ -373,9 +373,9 @@ elif option == "**Characters and Objects**":
 
 elif option == "**Diary Entries**":
     st.markdown("""
-        <div style="display: flex; justify-content: center; gap: 20px;">
-                <div style="flex: 1; text-align: center;">
-                     <p style="font-size: 2.0em;"><strong>ZERO : FEVER Pt.1</strong></p>
+                
+         <div style="display: block; margin: 0 auto; max-width: 900px; padding: 1rem;">
+                    <p style="font-size: 2.0em; text-align: center;"><strong>ZERO : FEVER Pt.1</strong></p>
                 
         A. INTRO
 
@@ -579,9 +579,7 @@ elif option == "**Diary Entries**":
 
         The iron door then opened and I could hear the footsteps coming closer one by one.  The guys then gathered around me with the same puzzled face.
 
-        <div style="display: flex; justify-content: center; gap: 20px;">
-                <div style="flex: 1; text-align: center;">
-                     <p style="font-size: 2.0em;"><strong>ZERO : FEVER Pt.2</strong></p>
+        <p style="font-size: 2.0em; text-align: center;"><strong>ZERO : FEVER Pt.2</strong></p>
         A. INTRO
 
         The Cromer in my hand flashed, but I was still in the hideout. Members who are looking at me were the same too.
@@ -759,9 +757,7 @@ elif option == "**Diary Entries**":
         
         "Jong Ho!" When Yeo Sang had arrived, Jong Ho was intoxicated with illusion and was running furiously toward the cliff. 
        
-        <div style="display: flex; justify-content: center; gap: 20px;">
-                <div style="flex: 1; text-align: center;">
-                     <p style="font-size: 2.0em;"><strong>ZERO : FEVER Pt.3</strong></p>
+        <p style="font-size: 2.0em; text-align: center;"><strong>ZERO : FEVER Pt.3</strong></p>
         A. INTRO
 
         The fourth industrial revolution stimulated the advances of science and technology. It also brought an expansion of human lifespan to 200 years. As the human lifespan increased, so did compulsory education. 40 years of education was required to learn basic knowledge and simple principles for living in this world.  
@@ -958,9 +954,7 @@ elif option == "**Diary Entries**":
 
         We all surely felt it. Yeo Sang is alive.
         
-        <div style="display: flex; justify-content: center; gap: 20px;">
-                <div style="flex: 1; text-align: center;">
-                     <p style="font-size: 2.0em;"><strong>ZERO : FEVER Epilogue</strong></p>
+        <p style="font-size: 2.0em; text-align: center;"><strong>ZERO : FEVER Epilogue</strong></p>
         A. INTRO
 
         "Saving humanity from the doom that's about to strike"
@@ -1159,9 +1153,7 @@ elif option == "**Diary Entries**":
 
         "SAY MY NAME. ATEEZ."
 
-        <div style="display: flex; justify-content: center; gap: 20px;">
-                <div style="flex: 1; text-align: center;">
-                     <p style="font-size: 2.0em;"><strong>The World Ep.1 : Movement</strong></p>
+       <p style="font-size: 2.0em; text-align: center;"><strong>The World Ep.1 : MOVEMENT</strong></p>
         A. INTRO
 
         Weeeeeeing!!!!!!!
@@ -1355,9 +1347,7 @@ elif option == "**Diary Entries**":
 
         "That's perfect. We were planning to go there, too."
                 
-        <div style="display: flex; justify-content: center; gap: 20px;">
-                <div style="flex: 1; text-align: center;">
-                     <p style="font-size: 2.0em;"><strong>The World Ep.2 : Outlaw</strong></p>
+        <p style="font-size: 2.0em; text-align: center;"><strong>The World Ep.2 : OUTLAW</strong></p>
         A. INTRO
 
         Prestige Academy
@@ -1730,9 +1720,7 @@ elif option == "**Diary Entries**":
 
         The Z-Only Guardians deployed to protect Z immediately took out their guns and shot the principals head and heart. The principal died instantly on the spot. 
 
-        <div style="display: flex; justify-content: center; gap: 20px;">
-                <div style="flex: 1; text-align: center;">
-                     <p style="font-size: 2.0em;"><strong>The World Ep.Fin : WILL/strong></p>
+        <p style="font-size: 2.0em; text-align: center;"><strong>The World Ep.FIN : WILL</strong></p>
          A. INTRO
 
         The scenery at the square has changed considerably from when ATEEZ performed just a few months ago. Sense Offenders graffiti symbolizing 'Wake Up' and 'Be Free' decorates the streets, covered with concealment screens installed by the forces trying to suppress them. The world is divided into the systemized and those outside the system, with each group fighting more intensely to win and stop the other. Unable to identify the faces of all the individual criminals, but having detained the men in black fedoras, the government has moved beyond simply denouncing the Black Pirates as a terrorist group and encouraging people to turn them in - plastered across the city are wanted posters of ATEEZ with the members' faces and government announcements declaring that [Those who attempt to induce emotion will be deemed associates of the Black Pirates and, for the people's safety, executed immediately without being sent to the Disposal Site.] 
@@ -2115,9 +2103,7 @@ elif option == "**Diary Entries**":
 
         FIN.  
 
-        <div style="display: flex; justify-content: center; gap: 20px;">
-                <div style="flex: 1; text-align: center;">
-                     <p style="font-size: 2.0em;"><strong>The World Epilogue : To The End/strong></p>
+        <p style="font-size: 2.0em; text-align: center;"><strong>The World Epilogue : To the End</strong></p>
         
             My dear ATEEZ,  
             The sibling tree we planted together has grown much taller than me. It might not seem like a big deal, but shortly after you left this place,
@@ -2182,9 +2168,7 @@ elif option == "**Diary Entries**":
             
             - Your Thunder
                     
-        div style="display: flex; justify-content: center; gap: 20px;">
-                <div style="flex: 1; text-align: center;">
-                     <p style="font-size: 2.0em;"><strong>GOLDEN HOUR Part.1</p>
+        <p style="font-size: 2.0em; text-align: center;"><strong>Golden Hour Pt.1</strong></p>
 
                        
         00. INTRO
@@ -2362,9 +2346,7 @@ elif option == "**Diary Entries**":
 
         He was reminded of a time long ago when MinGi had threatened to quit, JongHo had gotten so mad that he had punched him in return. ‘I was so young and selfish back then,’ JongHo thought to himself. ‘How is everyone?’ JongHo recalled the other members. Sitting in the empty recording studio, he played that old group song and raise the volume. The sound of the members voices pierced through his heart. 
 
-        iv style="display: flex; justify-content: center; gap: 20px;">
-        <div style="flex: 1; text-align: center;">
-        <p style="font-size: 2.0em;"><strong>GOLDEN HOUR Part.2</strong></p>        
+        <p style="font-size: 2.0em; text-align: center;"><strong>Golden Hour Pt.2</strong></p>     
 
         "Hey, I've been meaning to ask you - What's that thing you have stuck on 
 
