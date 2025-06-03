@@ -23,7 +23,7 @@ st.markdown(
 )
 
 
-option = st.sidebar.radio("Pages",["**Home**", "**Lore Forum**", "**Crash Course**", "**Characters and Objects**", "**Diary Entries**" ])
+option = st.sidebar.radio("Pages",["**Home**", "**Lore Forum**", "**Crash Course**", "**Characters and Objects**", "**Diary Entries**", "**Suggestions**" ])
 #"**TREASURE**", "**ZERO : FEVER**", "**THE WORLD**", "**Golden Hour**", "**Motifs**"
 if option == "**Home**":
     st.markdown("""
@@ -3305,6 +3305,17 @@ elif option == "**Circle Theory**":
 elif option == "**Motifs**":
     st.write("this page is currently under construction")
 
+elif option == "**Suggestions**":
+    with st.form("request_form"):
+        request_note = st.text_area("")
+        submitted = st.form_submit_button("Submit Suggestion")
+        
+        if submitted and request_note.strip():
+            with open("suggestions.txt", "a") as f:
+                timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+                f.write(f"[{timestamp}] Request: '{request_note}'\n")
+            st.success("Request submitted!")
+            
 else:
     st.write("this page is currently under construction")
 
