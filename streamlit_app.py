@@ -37,6 +37,7 @@ if option == "**Home**":
     st.caption("All rights to KQ Entertainment")
 
 elif option == "**Lore Forum**":
+        st.write("currently not working, im fixing this as we speak")
 
         FORUM_FILE = "forum_messages.txt"
 
