@@ -76,7 +76,6 @@ elif option == "**Lore Forum**":
     # Call rerun outside the form block
     if st.session_state.rerun_needed:
         st.session_state.rerun_needed = False
-        st.experimental_rerun()
 
     # Display all messages
     records = worksheet.get_all_records()
@@ -87,7 +86,7 @@ elif option == "**Lore Forum**":
             st.write(f"[{record['Timestamp']}] **{record['Name']}**: {record['Message']}")
     else:
         st.info("No messages yet.")
-        
+
 elif option == "**Crash Course**":
     st.caption("Officially confirmed lore is in italics, all other theories are in regular text. No evidence of these theories is on this page as it's just a story, but they can be found on other pages. For full details on the diary entries, read the entire diaries.")
     st.markdown("""
