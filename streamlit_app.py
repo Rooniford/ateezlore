@@ -3,6 +3,8 @@ import streamlit as st
 import numpy as np
 from datetime import datetime
 import os
+from google.oauth2.service_account import Credentials
+import gspread
 
 st.markdown(
     """
@@ -37,30 +39,47 @@ if option == "**Home**":
     st.caption("All rights to KQ Entertainment")
 
 elif option == "**Lore Forum**":
-        st.write("currently not working, im fixing this as we speak")
+        # Scopes required for Google Sheets
+        SCOPES = [
+            "https://www.googleapis.com/auth/drive",
+            "https://www.googleapis.com/auth/spreadsheets"
+            ]
+        # Authenticate using Streamlit secrets (make sure you've added them!)
+        credentials = Credentials.from_service_account_info(
+            st.secrets["gcp_service_account"],
+            scopes=SCOPES
+        )
+        gc = gspread.authorize(credentials)
 
-        FORUM_FILE = "forum_messages.txt"
+        # Open your Google Sheet
+        SHEET_ID = "1Ivr29klYqpa-jfqScOhcaIJLMKpOHkmSnNcoFfJqOys"
+        sh = gc.open_by_key(SHEET_ID)
+        worksheet = sh.sheet1  # Use the first sheet
 
-        # --- Submit a message ---
-        st.write("Please write your lore theories or questions below! Welcome to the den <3")
+        st.subheader("Welcome to the Den <3")
+        st.write("Please share your lore theories or questions below!")
+
+        # --- Form for user input ---
         with st.form("forum_form"):
             name = st.text_input("Your name (optional):")
             message = st.text_area("Message:")
             submitted = st.form_submit_button("Post")
 
             if submitted and message.strip():
-                with open(FORUM_FILE, "a", encoding="utf-8") as f:
-                    timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-                    entry = f"[{timestamp}] {name or 'Anonymous'}: {message.strip()}\n"
-                    f.write(entry)
+                timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+                worksheet.append_row([timestamp, name or "Anonymous", message.strip()])
                 st.success("Message posted!")
 
-        # --- Show all messages ---
-        st.markdown("")
-        if os.path.exists(FORUM_FILE):
-            with open(FORUM_FILE, "r", encoding="utf-8") as f:
-                messages = f.read()
-            st.text_area("All Messages", messages, height=300, disabled=True)
+                # Rerun the app so the new message shows up immediately
+                st.experimental_rerun()
+
+        # --- Display all messages ---
+        records = worksheet.get_all_records()
+        if records:
+            st.markdown("---")
+            st.subheader("All Messages")
+            for record in records:
+                st.write(f"[{record['Timestamp']}] **{record['Name']}**: {record['Message']}")
         else:
             st.info("No messages yet.")
 
