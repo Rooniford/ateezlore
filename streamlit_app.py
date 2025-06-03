@@ -39,51 +39,55 @@ if option == "**Home**":
     st.caption("All rights to KQ Entertainment")
 
 elif option == "**Lore Forum**":
-        # Scopes required for Google Sheets
-        SCOPES = [
-            "https://www.googleapis.com/auth/drive",
-            "https://www.googleapis.com/auth/spreadsheets"
-            ]
-        # Authenticate using Streamlit secrets (make sure you've added them!)
-        credentials = Credentials.from_service_account_info(
-            st.secrets["gcp_service_account"],
-            scopes=SCOPES
-        )
-        gc = gspread.authorize(credentials)
+    # Scopes required for Google Sheets
+    SCOPES = [
+        "https://www.googleapis.com/auth/drive",
+        "https://www.googleapis.com/auth/spreadsheets"
+    ]
+    credentials = Credentials.from_service_account_info(
+        st.secrets["gcp_service_account"],
+        scopes=SCOPES
+    )
+    gc = gspread.authorize(credentials)
 
-        # Open your Google Sheet
-        SHEET_ID = "1Ivr29klYqpa-jfqScOhcaIJLMKpOHkmSnNcoFfJqOys"
-        sh = gc.open_by_key(SHEET_ID)
-        worksheet = sh.sheet1  # Use the first sheet
+    SHEET_ID = "1Ivr29klYqpa-jfqScOhcaIJLMKpOHkmSnNcoFfJqOys"
+    sh = gc.open_by_key(SHEET_ID)
+    worksheet = sh.sheet1  # Use the first sheet
 
-        st.subheader("Welcome to the Den <3")
-        st.write("Please share your lore theories or questions below!")
+    st.subheader("Welcome to the Den <3")
+    st.write("Please share your lore theories or questions below!")
 
-        # --- Form for user input ---
-        with st.form("forum_form"):
-            name = st.text_input("Your name (optional):")
-            message = st.text_area("Message:")
-            submitted = st.form_submit_button("Post")
+    # Initialize flag
+    if "rerun_needed" not in st.session_state:
+        st.session_state.rerun_needed = False
 
-            if submitted and message.strip():
-                timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-                worksheet.append_row([timestamp, name or "Anonymous", message.strip()])
-                st.success("Message posted!")
+    with st.form("forum_form"):
+        name = st.text_input("Your name (optional):")
+        message = st.text_area("Message:")
+        submitted = st.form_submit_button("Post")
 
-                # Rerun the app so the new message shows up immediately
-                st.experimental_rerun()
+        if submitted and message.strip():
+            timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+            worksheet.append_row([timestamp, name or "Anonymous", message.strip()])
+            st.success("Message posted!")
+            # Set flag to trigger rerun outside form
+            st.session_state.rerun_needed = True
 
-        # --- Display all messages ---
-        records = worksheet.get_all_records()
-        if records:
-            st.markdown("---")
-            st.subheader("All Messages")
-            for record in records:
-                st.write(f"[{record['Timestamp']}] **{record['Name']}**: {record['Message']}")
-        else:
-            st.info("No messages yet.")
+    # Call rerun outside the form block
+    if st.session_state.rerun_needed:
+        st.session_state.rerun_needed = False
+        st.experimental_rerun()
 
-
+    # Display all messages
+    records = worksheet.get_all_records()
+    if records:
+        st.markdown("---")
+        st.subheader("All Messages")
+        for record in records:
+            st.write(f"[{record['Timestamp']}] **{record['Name']}**: {record['Message']}")
+    else:
+        st.info("No messages yet.")
+        
 elif option == "**Crash Course**":
     st.caption("Officially confirmed lore is in italics, all other theories are in regular text. No evidence of these theories is on this page as it's just a story, but they can be found on other pages. For full details on the diary entries, read the entire diaries.")
     st.markdown("""
